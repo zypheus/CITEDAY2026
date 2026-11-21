@@ -1,0 +1,23 @@
+insert into public.events (slug, name, category, division, sort_order) values
+  ('cheering', 'Cheering', 'performing', 'open', 1),
+  ('street-dance', 'Street Dance', 'performing', 'open', 2),
+  ('cosplay', 'Cosplay', 'performing', 'open', 3),
+  ('tech-talk', 'Tech Talk', 'tech', 'open', 4),
+  ('start-up-pitching', 'Start Up Pitching', 'tech', 'open', 5),
+  ('programming', 'Programming', 'tech', 'open', 6),
+  ('hackathon', 'Hackathon', 'tech', 'open', 7),
+  ('typing-master', 'Typing Master', 'tech', 'open', 8),
+  ('logo-making', 'Logo Making', 'creative', 'open', 9),
+  ('video-editing', 'Video Editing', 'creative', 'open', 10),
+  ('artistic-photography', 'Artistic Photography', 'creative', 'open', 11),
+  ('mobile-legends-male', 'Mobile Legends (Male)', 'esports', 'male', 12),
+  ('mobile-legends-female', 'Mobile Legends (Female)', 'esports', 'female', 13),
+  ('codm-male', 'CODM (Male)', 'esports', 'male', 14),
+  ('codm-female', 'CODM (Female)', 'esports', 'female', 15),
+  ('crossfire-mix', 'Crossfire (Mix)', 'esports', 'mix', 16),
+  ('block-blast', 'Block Blast', 'esports', 'open', 17),
+  ('amazing-race', 'Amazing Race', 'games', 'open', 18),
+  ('squid-game', 'Squid Game', 'games', 'open', 19),
+  ('sack-race', 'Sack Race', 'games', 'open', 20),
+  ('big-volleyball', 'Big Volleyball', 'games', 'open', 21)
+on conflict (slug) do nothing;

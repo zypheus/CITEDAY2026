@@ -1,0 +1,31 @@
+export const CATEGORY_LABELS: Record<string, string> = {
+  performing: 'Stage',
+  tech: 'Tech and Business',
+  creative: 'Creative',
+  esports: 'Esports',
+  games: 'Games and Sports',
+}
+
+export const VALID_EVENT_NAMES: string[] = [
+  'Cheering',
+  'Street Dance',
+  'Cosplay',
+  'Tech Talk',
+  'Start Up Pitching',
+  'Programming',
+  'Hackathon',
+  'Typing Master',
+  'Logo Making',
+  'Video Editing',
+  'Artistic Photography',
+  'Mobile Legends (Male)',
+  'Mobile Legends (Female)',
+  'CODM (Male)',
+  'CODM (Female)',
+  'Crossfire (Mix)',
+  'Block Blast',
+  'Amazing Race',
+  'Squid Game',
+  'Sack Race',
+  'Big Volleyball',
+]
