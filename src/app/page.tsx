@@ -86,6 +86,9 @@ export default async function HomePage({ searchParams }: PageProps) {
         <Link href="/admin/login" className="admin-link">
           Admin Login
         </Link>
+        <Link href="/admin" className="admin-link">
+          Admin Test
+        </Link>
       </footer>
     </div>
   )

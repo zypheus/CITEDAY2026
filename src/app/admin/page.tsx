@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { redirect } from 'next/navigation'
 import { connection } from 'next/server'
 import Link from 'next/link'
@@ -7,7 +8,55 @@ import { VALID_EVENT_NAMES } from '@/lib/constants'
 import { AdminHub } from '@/components/AdminHub'
 import { logoutAction } from './actions'
 
-export default async function AdminDashboardPage() {
+/**
+ * Static placeholder shown while the auth-gated dashboard streams in.
+ * It must not read cookies, the clock, or any other uncached data, otherwise
+ * the route loses its instant-navigation shell.
+ */
+function AdminDashboardLoading() {
+  return (
+    <main className="admin-dashboard-layout">
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '0.5rem',
+          minHeight: '60vh',
+          padding: '3rem 1.25rem',
+          textAlign: 'center',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'var(--font-oswald), sans-serif',
+            fontSize: '1.1rem',
+            fontStyle: 'italic',
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            color: 'var(--tcg-gold)',
+            textTransform: 'uppercase',
+          }}
+        >
+          Marines HQ
+        </span>
+        <p
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-inter), sans-serif',
+            fontSize: '0.9rem',
+            color: 'var(--tcg-text-dim)',
+          }}
+        >
+          Establishing secure uplink...
+        </p>
+      </div>
+    </main>
+  )
+}
+
+async function AdminDashboard() {
   // Auth-gated live dashboard: always render per request. Without this the
   // route is prerendered, and session/timestamp reads are not allowed there.
   await connection()
@@ -82,7 +131,7 @@ export default async function AdminDashboardPage() {
         </div>
       </section>
 
-      {/* Interactive Admin Hub (Per-Event Manager + Master CSV) */}
+      {/* Interactive Admin Hub (per-event roster manager) */}
       <AdminHub events={events} />
 
       {/* Reference Section: Valid Event Names */}
@@ -102,5 +151,15 @@ export default async function AdminDashboardPage() {
         </ul>
       </section>
     </main>
+  )
+}
+
+export default function AdminDashboardPage() {
+  // Keep the uncached auth/data reads inside a Suspense boundary so the route
+  // keeps a prerendered shell and navigations to /admin stay instant.
+  return (
+    <Suspense fallback={<AdminDashboardLoading />}>
+      <AdminDashboard />
+    </Suspense>
   )
 }
