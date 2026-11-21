@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
+import { fetchEventsWithParticipants } from '@/lib/events'
 import { VALID_EVENT_NAMES } from '@/lib/constants'
-import { CsvUploader } from '@/components/CsvUploader'
+import { AdminHub } from '@/components/AdminHub'
 import { logoutAction } from './actions'
 
 export default async function AdminDashboardPage() {
@@ -16,10 +17,13 @@ export default async function AdminDashboardPage() {
     redirect('/admin/login')
   }
 
-  // Get total count of participants
-  const { count: totalParticipants } = await supabase
-    .from('participants')
-    .select('*', { count: 'exact', head: true })
+  // Fetch events with participants for live management
+  const events = await fetchEventsWithParticipants()
+
+  const totalParticipants = events.reduce(
+    (sum, event) => sum + event.participants.length,
+    0
+  )
 
   // Get latest created_at timestamp
   const { data: latestParticipant } = await supabase
@@ -61,7 +65,7 @@ export default async function AdminDashboardPage() {
       <section className="metrics-grid" aria-label="Roster metrics">
         <div className="metric-card">
           <span className="metric-label">TOTAL ENLISTED MARINES</span>
-          <span className="metric-value">{totalParticipants ?? 0}</span>
+          <span className="metric-value">{totalParticipants}</span>
         </div>
         <div className="metric-card">
           <span className="metric-label">LAST ROSTER DEPLOYMENT</span>
@@ -69,12 +73,12 @@ export default async function AdminDashboardPage() {
         </div>
         <div className="metric-card">
           <span className="metric-label">ACTIVE OPERATIONS</span>
-          <span className="metric-value">21 Events</span>
+          <span className="metric-value">{events.length} Events</span>
         </div>
       </section>
 
-      {/* CSV Uploader */}
-      <CsvUploader />
+      {/* Interactive Admin Hub (Per-Event Manager + Master CSV) */}
+      <AdminHub events={events} />
 
       {/* Reference Section: Valid Event Names */}
       <section className="events-reference-card" aria-labelledby="reference-title">
