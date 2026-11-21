@@ -131,7 +131,7 @@ Status legend: `[ ]` todo, `[x]` done, `[~]` in progress, `[!]` blocked.
 
 **Goal:** Live site.
 
-- [ ] 7.1 Push the repo to GitHub.
+- [x] 7.1 Push the repo to GitHub. Pushed `master` to https://github.com/zypheus/CITEDAY2026.git.
 - [ ] 7.2 Import the repo in Vercel. Framework preset: Next.js.
 - [ ] 7.3 Add the two env vars in Vercel for Production and Preview.
 - [ ] 7.4 In Supabase Auth settings, set the Site URL and redirect URLs to the Vercel domain.
@@ -165,3 +165,5 @@ Status legend: `[ ]` todo, `[x]` done, `[~]` in progress, `[!]` blocked.
 | 2026-11-21 | Phase 5 | Applied retro One Piece x Marines theme (Press Start 2P, VT323, parchment wanted-poster cards, CRT overlay, wave divider). |
 | 2026-11-21 | Phase 6 | Added metadata, favicon, loading.tsx, error.tsx, README with upload guide. Passed lint and build cleanly. Cleaned test data. |
 | 2026-11-21 | Fix | Made `/` and `/admin` request-time with `connection()` so a logged-in Supabase session no longer trips the `Date.now()` prerender error. Added migration 005 giving `replace_roster` a WHERE clause so Supabase safe update allows the bulk upload. |
+| 2026-11-21 | Pagination | Added per-event roster pagination on the public page: 10 names per card, Prev/Next, page kept in the URL as `p-<slug>`. Category filter and search reset the page params. |
+| 2026-11-21 | Phase 7 | Pushed `master` to https://github.com/zypheus/CITEDAY2026.git (task 7.1). |
