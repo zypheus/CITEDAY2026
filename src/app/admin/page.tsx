@@ -91,7 +91,7 @@ export default async function AdminDashboardPage() {
           OFFICIAL EVENT OPERATIONS DIRECTORY
         </h3>
         <p className="reference-desc">
-          When authoring CSV manifests, the event column must match one of these 21 official titles:
+          These are the 21 official event titles. Pick one from the dropdown above to manage its roster.
         </p>
         <ul className="reference-events-grid">
           {VALID_EVENT_NAMES.map((name, i) => (

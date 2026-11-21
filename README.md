@@ -15,10 +15,10 @@ A public roster tracking website for Team Marines competitions at CITE DAY 2026.
 
 ## How to upload a roster
 1. Navigate to `/admin/login` and sign in with officer credentials.
-2. Download `sample.csv` or prepare a CSV with `event,name` columns.
-3. Select your CSV file and inspect the preview table for any flagged rows.
-4. Click "Confirm and Replace Roster" to deploy the manifest.
-5. All participant records are replaced atomically and the public roster updates.
+2. Pick the event from the dropdown in the roster manager.
+3. Add names one of three ways: Single Add, Bulk Paste, or Event CSV. The CSV only needs a list of names, one per line.
+4. Choose Append to keep existing names, or Replace to overwrite that event's roster.
+5. Deploy. The public roster updates right away.
 
 ## Environment Variables
 - `NEXT_PUBLIC_SUPABASE_URL`: Supabase project URL

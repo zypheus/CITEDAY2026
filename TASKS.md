@@ -89,6 +89,7 @@ Status legend: `[ ]` todo, `[x]` done, `[~]` in progress, `[!]` blocked.
 - [x] 4.6 Add `public/sample.csv` with download link and valid events directory on `/admin`.
 - [x] 4.7 Show last upload time and current total participants on `/admin`.
 - [x] 4.8 Edge case handling verified (unknown events, BOM, duplicate rows, whitespace normalization).
+- Note: the master all-in-one CSV uploader was removed on request. The admin now uses the per-event manager only, so `replace_roster`, `src/lib/csv.ts`, and `public/sample.csv` are gone.
 
 **Check:** Uploading `sample.csv` updates the public page. A bad file shows clear errors and leaves the old roster unchanged.
 
@@ -167,3 +168,4 @@ Status legend: `[ ]` todo, `[x]` done, `[~]` in progress, `[!]` blocked.
 | 2026-11-21 | Fix | Made `/` and `/admin` request-time with `connection()` so a logged-in Supabase session no longer trips the `Date.now()` prerender error. Added migration 005 giving `replace_roster` a WHERE clause so Supabase safe update allows the bulk upload. |
 | 2026-11-21 | Pagination | Added per-event roster pagination on the public page: 10 names per card, Prev/Next, page kept in the URL as `p-<slug>`. Category filter and search reset the page params. |
 | 2026-11-21 | Phase 7 | Pushed `master` to https://github.com/zypheus/CITEDAY2026.git (task 7.1). |
+| 2026-11-21 | Admin | Removed the master all-in-one CSV uploader. `/admin` now goes straight to the per-event roster manager. Deleted `CsvUploader`, `lib/csv.ts`, `uploadRosterAction`, `public/sample.csv`, and migration 005. |
