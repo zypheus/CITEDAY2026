@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { CATEGORY_LABELS } from '@/lib/constants'
+import { clearPageParams } from '@/lib/pagination'
 
 export function CategoryFilter() {
   const router = useRouter()
@@ -11,6 +12,7 @@ export function CategoryFilter() {
 
   function handleFilterClick(categoryKey: string) {
     const params = new URLSearchParams(searchParams.toString())
+    clearPageParams(params)
     if (categoryKey) {
       params.set('category', categoryKey)
     } else {

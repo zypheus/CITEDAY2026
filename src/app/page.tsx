@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { connection } from 'next/server'
 import Link from 'next/link'
 import { fetchEventsWithParticipants } from '@/lib/events'
 import { CATEGORY_LABELS } from '@/lib/constants'
@@ -6,16 +7,20 @@ import { Hero } from '@/components/Hero'
 import { EventCard } from '@/components/EventCard'
 import { CategoryFilter } from '@/components/CategoryFilter'
 import { SearchBox } from '@/components/SearchBox'
+import { firstParam, type SearchParamsRecord } from '@/lib/pagination'
 
 interface PageProps {
-  searchParams: Promise<{
-    category?: string
-    search?: string
-  }>
+  searchParams: Promise<SearchParamsRecord>
 }
 
 export default async function HomePage({ searchParams }: PageProps) {
-  const { category, search } = await searchParams
+  // The roster is live data and the Supabase client reads the session cookie,
+  // so render per request instead of baking a timestamp into a prerender.
+  await connection()
+
+  const params = await searchParams
+  const category = firstParam(params.category)
+  const search = firstParam(params.search)
   const allEvents = await fetchEventsWithParticipants()
 
   const totalParticipants = allEvents.reduce(
@@ -69,7 +74,7 @@ export default async function HomePage({ searchParams }: PageProps) {
         ) : (
           <div className="events-grid">
             {filteredEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+              <EventCard key={event.id} event={event} searchParams={params} />
             ))}
           </div>
         )}

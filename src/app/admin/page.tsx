@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import { connection } from 'next/server'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { fetchEventsWithParticipants } from '@/lib/events'
@@ -7,6 +8,10 @@ import { AdminHub } from '@/components/AdminHub'
 import { logoutAction } from './actions'
 
 export default async function AdminDashboardPage() {
+  // Auth-gated live dashboard: always render per request. Without this the
+  // route is prerendered, and session/timestamp reads are not allowed there.
+  await connection()
+
   const supabase = await createClient()
 
   const {

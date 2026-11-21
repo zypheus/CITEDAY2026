@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { useTransition } from 'react'
+import { clearPageParams } from '@/lib/pagination'
 
 export function SearchBox() {
   const router = useRouter()
@@ -12,6 +13,7 @@ export function SearchBox() {
 
   function handleChange(term: string) {
     const params = new URLSearchParams(searchParams.toString())
+    clearPageParams(params)
     if (term.trim()) {
       params.set('search', term.trim())
     } else {

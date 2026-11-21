@@ -164,3 +164,4 @@ Status legend: `[ ]` todo, `[x]` done, `[~]` in progress, `[!]` blocked.
 | 2026-11-21 | Phase 4 | Built CSV parser with BOM and space normalization, browser preview, server action validation, sample.csv download, and metrics. |
 | 2026-11-21 | Phase 5 | Applied retro One Piece x Marines theme (Press Start 2P, VT323, parchment wanted-poster cards, CRT overlay, wave divider). |
 | 2026-11-21 | Phase 6 | Added metadata, favicon, loading.tsx, error.tsx, README with upload guide. Passed lint and build cleanly. Cleaned test data. |
+| 2026-11-21 | Fix | Made `/` and `/admin` request-time with `connection()` so a logged-in Supabase session no longer trips the `Date.now()` prerender error. Added migration 005 giving `replace_roster` a WHERE clause so Supabase safe update allows the bulk upload. |

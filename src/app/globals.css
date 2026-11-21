@@ -525,6 +525,78 @@ body.tcg-body {
   text-align: center;
 }
 
+/* Card Roster Pagination */
+.card-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pager-range {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tcg-text-muted);
+  white-space: nowrap;
+}
+
+.pager-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pager-btn {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--tcg-gold);
+  background: rgba(229, 179, 56, 0.08);
+  border: 1px solid rgba(229, 179, 56, 0.45);
+  border-radius: 3px;
+  padding: 0.22rem 0.5rem;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.pager-btn:hover,
+.pager-btn:focus-visible {
+  background: rgba(229, 179, 56, 0.2);
+  border-color: var(--tcg-gold);
+  color: var(--tcg-gold-light);
+}
+
+.pager-btn-disabled {
+  color: var(--tcg-text-muted);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+}
+
+.pager-status {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--tcg-text-dim);
+  min-width: 3rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pager-btn {
+    transition: none;
+  }
+}
+
 /* Card Foot Code */
 .card-foot-code {
   display: flex;
