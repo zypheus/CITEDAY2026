@@ -10,17 +10,26 @@ export default function Icon() {
         style={{
           width: 32,
           height: 32,
-          background: '#0B1F3A',
+          background: '#070B14',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          border: '2px solid #E0B040',
-          color: '#E0B040',
-          fontSize: 18,
-          fontWeight: 900,
+          border: '2px solid #E5B338',
+          borderRadius: 6,
+          boxShadow: '0 0 8px rgba(229, 179, 56, 0.4)',
         }}
       >
-        M
+        <div
+          style={{
+            color: '#E5B338',
+            fontSize: 18,
+            fontWeight: 800,
+            fontFamily: 'sans-serif',
+            fontStyle: 'italic',
+          }}
+        >
+          M
+        </div>
       </div>
     ),
     { ...size }

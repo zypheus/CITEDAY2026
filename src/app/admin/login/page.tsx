@@ -25,9 +25,9 @@ export default function AdminLoginPage() {
     <main className="admin-login-layout">
       <div className="login-box">
         <div className="login-header">
-          <span className="badge category-badge">RESTRICTED AREA</span>
+          <span className="login-badge">COMMAND POST // RESTRICTED</span>
           <h1 className="login-title">MARINES HEADQUARTERS</h1>
-          <p className="login-subtitle">AUTHORIZED PERSONNEL ONLY</p>
+          <p className="login-subtitle">AUTHORIZED OFFICER ACCESS ONLY</p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
               type="email"
               required
               autoComplete="email"
-              placeholder="admin@marines.cite"
+              placeholder="officer@marines.cite"
               className="text-input"
             />
           </div>
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
             disabled={isPending}
             className="btn-primary submit-btn"
           >
-            {isPending ? 'AUTHENTICATING...' : 'ENTER HEADQUARTERS'}
+            {isPending ? 'AUTHENTICATING...' : 'ENTER COMMAND POST'}
           </button>
         </form>
 

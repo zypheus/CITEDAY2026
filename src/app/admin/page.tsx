@@ -41,7 +41,7 @@ export default async function AdminDashboardPage() {
     <main className="admin-dashboard-layout">
       <header className="admin-topbar">
         <div className="admin-branding">
-          <span className="badge category-badge">COMMAND POST</span>
+          <span className="login-badge">COMMAND POST // LEVEL 4</span>
           <h1 className="admin-heading">MARINES HQ ADMINISTRATION</h1>
           <p className="admin-officer-info">Signed in as: {user.email}</p>
         </div>

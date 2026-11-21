@@ -21,8 +21,11 @@ export function CategoryFilter() {
   }
 
   const filterOptions = [
-    { key: '', label: 'All Units' },
-    ...Object.entries(CATEGORY_LABELS).map(([key, label]) => ({ key, label })),
+    { key: '', label: 'ALL UNITS' },
+    ...Object.entries(CATEGORY_LABELS).map(([key, label]) => ({
+      key,
+      label: label.toUpperCase(),
+    })),
   ]
 
   return (
