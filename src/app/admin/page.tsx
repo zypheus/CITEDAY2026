@@ -140,7 +140,7 @@ async function AdminDashboard() {
           OFFICIAL EVENT OPERATIONS DIRECTORY
         </h3>
         <p className="reference-desc">
-          These are the 21 official event titles. Pick one from the dropdown above to manage its roster.
+          These are the {events.length} official event titles. Pick one from the dropdown above to manage its roster.
         </p>
         <ul className="reference-events-grid">
           {VALID_EVENT_NAMES.map((name, i) => (

@@ -1,8 +1,9 @@
 interface HeroProps {
   totalParticipants: number
+  totalEvents: number
 }
 
-export function Hero({ totalParticipants }: HeroProps) {
+export function Hero({ totalParticipants, totalEvents }: HeroProps) {
   return (
     <header className="hero">
       <div className="hero-emblem" aria-hidden="true">
@@ -80,7 +81,7 @@ export function Hero({ totalParticipants }: HeroProps) {
               'Roster Deployment Pending'
             ) : (
               <>
-                <span className="hero-count-number">{totalParticipants}</span> Marines Deployed Across 21 Operations
+                <span className="hero-count-number">{totalParticipants}</span> Marines Deployed Across {totalEvents} Operations
               </>
             )}
           </span>

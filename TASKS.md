@@ -169,3 +169,4 @@ Status legend: `[ ]` todo, `[x]` done, `[~]` in progress, `[!]` blocked.
 | 2026-11-21 | Pagination | Added per-event roster pagination on the public page: 10 names per card, Prev/Next, page kept in the URL as `p-<slug>`. Category filter and search reset the page params. |
 | 2026-11-21 | Phase 7 | Pushed `master` to https://github.com/zypheus/CITEDAY2026.git (task 7.1). |
 | 2026-11-21 | Admin | Removed the master all-in-one CSV uploader. `/admin` now goes straight to the per-event roster manager. Deleted `CsvUploader`, `lib/csv.ts`, `uploadRosterAction`, `public/sample.csv`, and migration 005. |
+| 2026-11-22 | Events | Added Project Poster (creative) and Chinese Garter (games) as events 22 and 23. Updated seed data, admin reference list, and dynamic event counts in the hero and admin page. Applied migration `add_project_poster_and_chinese_garter` via MCP. Live event count is 23. |

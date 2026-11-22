@@ -28,4 +28,6 @@ export const VALID_EVENT_NAMES: string[] = [
   'Squid Game',
   'Sack Race',
   'Big Volleyball',
+  'Project Poster',
+  'Chinese Garter',
 ]

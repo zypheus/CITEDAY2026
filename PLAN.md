@@ -73,6 +73,8 @@ Store these exactly. `sort_order` follows this order. `slug` is lowercase with h
 | 19 | Squid Game | squid-game | games | open |
 | 20 | Sack Race | sack-race | games | open |
 | 21 | Big Volleyball | big-volleyball | games | open |
+| 22 | Project Poster | project-poster | creative | open |
+| 23 | Chinese Garter | chinese-garter | games | open |
 
 Category display labels: performing = "Stage", tech = "Tech and Business", creative = "Creative", esports = "Esports", games = "Games and Sports".
 
@@ -215,7 +217,7 @@ cite-day-2026/
 
 ## 12. Definition of Done (v1)
 
-- [ ] Public page shows all 21 events with Marines names, readable on a phone.
+- [ ] Public page shows all 23 events with Marines names, readable on a phone.
 - [ ] Admin can log in, upload a valid CSV, preview it, confirm, and see the public page update.
 - [ ] Bad CSV rows are reported clearly and never break the roster.
 - [ ] Non-admin visitors cannot write to the database (verified).

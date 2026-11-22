@@ -19,5 +19,7 @@ insert into public.events (slug, name, category, division, sort_order) values
   ('amazing-race', 'Amazing Race', 'games', 'open', 18),
   ('squid-game', 'Squid Game', 'games', 'open', 19),
   ('sack-race', 'Sack Race', 'games', 'open', 20),
-  ('big-volleyball', 'Big Volleyball', 'games', 'open', 21)
+  ('big-volleyball', 'Big Volleyball', 'games', 'open', 21),
+  ('project-poster', 'Project Poster', 'creative', 'open', 22),
+  ('chinese-garter', 'Chinese Garter', 'games', 'open', 23)
 on conflict (slug) do nothing;

@@ -49,7 +49,7 @@ export default async function HomePage({ searchParams }: PageProps) {
 
   return (
     <div className="site-wrapper">
-      <Hero totalParticipants={totalParticipants} />
+      <Hero totalParticipants={totalParticipants} totalEvents={allEvents.length} />
 
       <div className="wave-divider" aria-hidden="true" />
 
